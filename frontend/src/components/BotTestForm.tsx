@@ -2,8 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Send, Plus, Minus, HelpCircle, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import QuestionInput from './QuestionInput';
-import QuestionsOverviewTable from './QuestionsOverviewTable';
-import ResultsOverviewTable from './ResultsOverviewTable';
+import { API_URL } from '../constants';
 import {
   Question,
   FormData,
@@ -18,8 +17,6 @@ import {
 import { bots } from '../data/bots';
 
 const FORM_DATA_STORAGE_KEY = 'botTestFormData';
-
-const API_ENDPOINT = 'https://e802-2401-4900-8813-ac84-60fb-81a8-3cae-164f.ngrok-free.app';
 
 // Pre-populated test data
 const DEFAULT_TEST_DATA: FormData = {
@@ -311,7 +308,7 @@ const BotTestForm: React.FC = () => {
 
       console.log('Sending API request with payload:', payload);
 
-      const response = await fetch(API_ENDPOINT, {
+      const response = await fetch(API_URL+"/run-test", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
