@@ -294,8 +294,7 @@ const BotTestForm: React.FC = () => {
 
     try {
       // Use form values for the payload
-      const payload = {
-        hostname: "192.168.1.24:8003",  // Keep this hardcoded for now
+      const payload = {  // Keep this hardcoded for now
         bot_name: "MandateTestingBot3", // Keep this hardcoded for now
         call_count: formData.testCount,
         questions: formData.questions.map(q => ({

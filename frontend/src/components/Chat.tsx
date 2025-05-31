@@ -46,9 +46,7 @@ const Chat: React.FC = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          call_count: 0,
-          iteration: currentIteration.number,
-          accuracy: currentIteration.accuracy
+          
         })
       });
       const data = await response.json();
@@ -149,27 +147,7 @@ const Chat: React.FC = () => {
     <div className="flex flex-col h-[600px] w-full max-w-md bg-white rounded-lg shadow-lg">
       <div className="bg-blue-600 text-white p-4 rounded-t-lg">
         <h2 className="text-xl font-semibold">Live chat with Bot</h2>
-        <div className="flex items-center mt-2 text-sm">
-          <span>Iteration {currentIteration.number}</span>
-          <div className="ml-4 flex items-center">
-            <label className="mr-2">Accuracy:</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              value={currentIteration.accuracy}
-              onChange={(e) => handleAccuracyChange(Number(e.target.value))}
-              className="w-16 px-1 py-0.5 text-black rounded"
-            />
-            <span className="ml-1">%</span>
-          </div>
-          <button
-            onClick={startNewIteration}
-            className="ml-4 px-2 py-1 bg-blue-700 rounded hover:bg-blue-800 text-sm"
-          >
-            New Iteration
-          </button>
-        </div>
+        
       </div>
       
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
